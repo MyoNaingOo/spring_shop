@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -35,6 +36,8 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
+
+
 
 
     public Product(String post_name, int price, String post_text, ArrayList<String> post_img,User owner) {

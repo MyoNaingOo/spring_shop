@@ -1,13 +1,13 @@
 package com.mno.shop.controller;
 
-import com.mno.shop.entity.Product;
+import com.mno.shop.entity.Postor;
 import com.mno.shop.entity.User;
-import com.mno.shop.service.CustomService;
 import com.mno.shop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/user")
@@ -17,8 +17,7 @@ public class UserController {
     private UserService userService;
 
 
-    @Autowired
-    private CustomService customService;
+
 
 
     @PostMapping("add")
@@ -40,14 +39,18 @@ public class UserController {
 
     @GetMapping("users")
     public List<User> getusers(){
-       return userService.getUser();
+       return userService.getUsers();
     }
 
-
-    @GetMapping("start")
-    public Product Start(){
-       return customService.start();
+    @GetMapping("user/{id}")
+    public Optional<User> getUser(@PathVariable ("id") Long id){
+        return userService.getUser(id);
     }
+
+//    @PostMapping("oo")
+//    public Postor Start(@RequestBody Postor postor){
+//       return customService.start(postor);
+//    }
 
 
 }

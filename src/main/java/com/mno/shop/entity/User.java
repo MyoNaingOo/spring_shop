@@ -6,8 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 
 @Entity
@@ -29,6 +28,7 @@ public class User{
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
 
     public User(String name, String password, String email, Role role) {
         this.name = name;
