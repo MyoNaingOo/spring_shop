@@ -18,12 +18,11 @@ public class UserController {
 
 
 
-
-
     @PostMapping("add")
     public void  add(@RequestBody User user){
         userService.addNewUser(user);
     }
+
 
 
     @DeleteMapping("delete/{id}")
@@ -46,6 +45,13 @@ public class UserController {
     public Optional<User> getUser(@PathVariable ("id") Long id){
         return userService.getUser(id);
     }
+
+    @GetMapping("users/{name}")
+    public User getUsername(@PathVariable ("name") String name){
+        return userService.userfind(name);
+    }
+
+
 
 //    @PostMapping("oo")
 //    public Postor Start(@RequestBody Postor postor){
